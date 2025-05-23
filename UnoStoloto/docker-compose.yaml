@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://dbuser:BAW36YKi@pgdb:5432/postgresdb
+    depends_on:
+      pgdb:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    networks:
+      - accounting_network
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+  pgdb:
+    container_name: pgdb
+    image: postgres:17
+    environment:
+      POSTGRES_USER: dbuser
+      POSTGRES_PASSWORD: BAW36YKi
+      POSTGRES_DB: postgresdb  # Èñïðàâëåíî: áûëî "posgresdb" (îïå÷àòêà)
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Èñïðàâëåíî: áûëî "postgres-db" (íåñîîòâåòñòâèå)
+    networks:
+      - accounting_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dbuser -d postgresdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:  # Èñïðàâëåíî: åäèíîîáðàçèå èìåíîâàíèÿ
+
+networks:
+  accounting_network:
+    driver: bridge

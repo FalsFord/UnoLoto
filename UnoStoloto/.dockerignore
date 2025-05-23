@@ -1,0 +1,9 @@
+*.pyc
+*.pkl
+*.jpg
+*.png
+*.pdf
+__pycache__
+.venv
+.git
+*.sqlite

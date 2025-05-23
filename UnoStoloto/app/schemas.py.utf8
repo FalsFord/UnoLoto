@@ -1,0 +1,13 @@
+from pydantic import BaseModel, EmailStr, Field, ConfigDict
+from typing import List, Literal, Tuple, Dict
+
+ticket_color = Literal["red", "blue", "green", "yellow"]
+
+
+class EmailModel(BaseModel):
+    email: EmailStr = Field(description="Р­Р»РµРєС‚СЂРѕРЅРЅР°СЏ РїРѕС‡С‚Р°")
+    model_config = ConfigDict(from_attributes=True)
+
+
+class UserBase(EmailModel):
+    username: str = Field(description="Р
