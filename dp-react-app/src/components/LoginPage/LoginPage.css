@@ -1,0 +1,257 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffcd17;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-form {
+  background-color: #1A1A1A;
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  border: 2px solid #ffcd17;
+}
+
+.login-title {
+  color: #FF8C00;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #FF8C00;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 2px solid #FF8C00;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #2D2D2D;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #FF4500;
+  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.2);
+}
+
+.remember-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.remember-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #ffcd17;
+  font-size: 14px;
+}
+
+.checkmark {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: #2D2D2D;
+  border: 2px solid #ffcd17;
+  border-radius: 4px;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.remember-label input:checked ~ .checkmark {
+  background-color: #ffcd17;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid #1A1A1A;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.remember-label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.forgot-password {
+  background: none;
+  border: none;
+  color: #ffcd17;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #FF4500;
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 100%;
+  padding: 16px;
+  background-color: #ffcd17;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.login-button:hover {
+  background-color: #ffcd17;
+  transform: translateY(-2px);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 25px;
+  color: #ff8c00;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: #ffcd17;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.register-link a:hover {
+  border-bottom-color: #ffcd17;
+}
+
+/* Скрываем нативный чекбокс */
+.hidden-checkbox {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Обновляем стили для checkmark */
+.checkmark {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: #2D2D2D;
+  border: 2px solid #ffcd17;
+  border-radius: 4px;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.remember-label input:checked ~ .checkmark {
+  background-color: #ffcd17;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid #1A1A1A;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.remember-label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.error-message {
+  color: #FF3333;
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 12px;
+  background-color: rgba(255, 51, 51, 0.1);
+  border-radius: 6px;
+  border: 1px solid #FF3333;
+  font-size: 14px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .login-form {
+    padding: 30px 25px;
+  }
+  
+  .login-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 15px;
+  }
+  
+  .login-form {
+    padding: 25px 20px;
+  }
+  
+  .form-group input {
+    padding: 12px 16px;
+  }
+  
+  .login-button {
+    padding: 14px;
+    font-size: 16px;
+  }
+  
+  .remember-group {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,1350 @@
+/* Основные стили */
+:root {
+  --uno-red: #FF4500;
+  --uno-blue: #1E90FF;
+  --uno-yellow: #FFD700;
+  --uno-green: #32CD32;
+  --uno-black: #1a1a1a;
+  --uno-bg: #ffcd17;
+  --uno-accent: #ff6b00;
+  --uno-text: #1a1a1a;
+  --uno-light: rgba(255, 255, 255, 0.7);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--uno-bg);
+  color: var(--uno-text);
+}
+
+/* Стили для header */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--uno-black);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 100;
+  border-bottom: 3px solid var(--uno-accent);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.logo-uno {
+  color: var(--uno-red);
+  text-shadow: 2px 2px 0 var(--uno-yellow);
+}
+
+.logo-lottery {
+  color: white;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.menu-item {
+  position: relative;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--uno-yellow);
+}
+
+.menu-icon {
+  font-size: 1.2rem;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--uno-black);
+  padding: 0.5rem;
+  border-radius: 8px;
+  min-width: 200px;
+  z-index: 100;
+  border: 2px solid var(--uno-accent);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-item {
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: var(--uno-accent);
+  color: white;
+  transform: translateX(5px);
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.buy-button {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, var(--uno-red), var(--uno-accent));
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 8px rgba(255, 69, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.buy-button:hover {
+  background: linear-gradient(135deg, var(--uno-accent), var(--uno-red));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 69, 0, 0.4);
+}
+
+.buy-button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+.currency-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.currency-symbol {
+  font-size: 1.1rem;
+}
+
+.profile-button {
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.profile-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--uno-black);
+  padding: 0.5rem;
+  border-radius: 8px;
+  min-width: 220px;
+  z-index: 100;
+  border: 2px solid var(--uno-accent);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Основной контейнер игры */
+.game-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Баннер джекпота */
+.jackpot-banner {
+  background: var(--uno-black);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 3px solid var(--uno-accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.jackpot-amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--uno-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.next-draw {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+/* Контейнер для наборов билетов */
+.ticket-sets-container {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 3px solid var(--uno-black);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-sets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+/* Стили для пустого состояния */
+.empty-state {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.empty-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.empty-state h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--uno-black);
+}
+
+.empty-state p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--uno-text);
+  opacity: 0.8;
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--uno-red), var(--uno-accent));
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 4px 12px rgba(255, 69, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, var(--uno-accent), var(--uno-red));
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(255, 69, 0, 0.4);
+}
+
+/* Набор билетов */
+.ticket-set {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--uno-black);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-set:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.ticket-set::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, var(--uno-red), var(--uno-yellow), var(--uno-green), var(--uno-blue));
+}
+
+.ticket-set-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+}
+
+.set-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--uno-red);
+  margin-right: 0.5rem;
+}
+
+.set-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.remove-set-button {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff3333;
+  border: 1px solid #ff6666;
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.remove-set-button:hover {
+  background: rgba(255, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.ticket-set-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.ticket-set-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px dashed rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
+
+.win-chance {
+  color: var(--uno-blue);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.set-price {
+  color: var(--uno-green);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Карты UNO */
+.uno-card {
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.uno-card:hover {
+  transform: translateY(-10px) rotate(5deg);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-center {
+  width: 60%;
+  height: 70%;
+  background-color: white;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: rotate(45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-number {
+  transform: rotate(-45deg);
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--uno-black);
+}
+
+.card-corners {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.top-left {
+  top: 5px;
+  left: 8px;
+}
+
+.bottom-right {
+  bottom: 5px;
+  right: 8px;
+  transform: rotate(180deg);
+}
+
+/* Модальное окно */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: var(--uno-bg);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  color: var(--uno-text);
+  border: 4px solid var(--uno-black);
+  box-shadow: 0 0 30px rgba(255, 205, 23, 0.7);
+  position: relative;
+  animation: modalAppear 0.4s ease-out;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.check-results {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.result-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+.modal-header {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.modal-title {
+  color: var(--uno-black);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-subtitle {
+  color: var(--uno-black);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.close-modal-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--uno-red);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal-button:hover {
+  background: var(--uno-black);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.ticket-slots {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  border: 3px dashed var(--uno-black);
+}
+
+.ticket-slots.bounce {
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.ticket-slot {
+  width: 100px;
+  height: 150px;
+  border: 3px dashed var(--uno-black);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.ticket-slot:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.winning-combination {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 1rem 0;
+}
+.winning-modal {
+  max-width: 500px;
+}
+
+.winning-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.balance-box {
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.timer-banner {
+  background: var(--uno-black);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.ticket-set-footer {
+  justify-content: center;
+}
+
+.empty-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.empty-slot-icon {
+  font-size: 3rem;
+  color: rgba(26, 26, 26, 0.3);
+  transition: all 0.3s ease;
+}
+
+.empty-slot-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--uno-black);
+}
+
+.ticket-with-remove {
+  position: relative;
+}
+
+.remove-ticket-button {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: var(--uno-red);
+  color: white;
+  border: 2px solid var(--uno-black);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.remove-ticket-button:hover {
+  background: var(--uno-black);
+  color: var(--uno-red);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.selection-panel {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  border: 3px solid var(--uno-black);
+}
+
+.selection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.selection-label {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--uno-black);
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.number-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.number-button {
+  padding: 0.8rem;
+  background: white;
+  color: var(--uno-black);
+  border: 2px solid var(--uno-black);
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-button:hover {
+  background: var(--uno-black);
+  color: white;
+  transform: scale(1.05);
+}
+
+.number-button.selected {
+  background: var(--uno-black);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 3px var(--uno-yellow);
+}
+.check-results {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.result-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+.color-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+   gap: 0.8rem;
+}
+
+.color-button {
+  padding: 0.8rem;
+  background: white;
+  border: 2px solid var(--uno-black);
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.color-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.color-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.color-button.selected {
+  border-width: 3px;
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px var(--uno-yellow);
+}
+
+.color-emoji {
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+.add-button {
+  padding: 1rem;
+  background: var(--uno-black);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -50%; }
+  100% { left: 150%; }
+}
+
+.add-button:hover {
+  background: var(--uno-black);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.submit-button {
+  flex: 1;
+  padding: 1rem;
+  background: var(--uno-red);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: var(--uno-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 69, 0, 0.3);
+}
+
+.close-button {
+  flex: 0.5;
+  padding: 1rem;
+  background: transparent;
+  color: var(--uno-black);
+  border: 2px solid var(--uno-black);
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-button:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.modal-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px dashed var(--uno-black);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.price-info .price {
+  font-weight: bold;
+  color: var(--uno-green);
+}
+
+.rules-link a {
+  color: var(--uno-black);
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px dotted var(--uno-black);
+}
+
+.rules-link a:hover {
+  color: var(--uno-red);
+}
+
+/* Секция с правилами */
+.rules-section {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border: 3px solid var(--uno-black);
+  transition: all 0.3s ease;
+}
+
+.rules-section.expanded {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.rules-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--uno-black);
+  margin: 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.rules-header:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.rules-content {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.rule-item {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  border: 2px solid var(--uno-black);
+  position: relative;
+  overflow: hidden;
+}
+
+.rule-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(
+    var(--uno-red),
+    var(--uno-yellow),
+    var(--uno-green),
+    var(--uno-blue)
+  );
+}
+
+.rule-number {
+  width: 32px;
+  height: 32px;
+  background: var(--uno-black);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* Футер */
+.game-footer {
+  background: var(--uno-black);
+  color: white;
+  padding: 2rem;
+  border-top: 3px solid var(--uno-accent);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.main-content {
+  padding-bottom: 100px; /* Подберите значение под ваш футер */
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--uno-yellow);
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .nav-menu {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .jackpot-banner {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .ticket-sets-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    padding: 1.rem;
+    width: 95%;
+  }
+  
+  .ticket-slots {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .selection-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .game-footer {
+    padding: 1.5rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Анимации */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.jackpot-amount {
+  animation: pulse 2s infinite;
+}
+
+.win-chance {
+  animation: colorShift 3s infinite;
+}
+
+@keyframes colorShift {
+  0% { color: var(--uno-blue); }
+  50% { color: var(--uno-green); }
+  100% { color: var(--uno-blue); }
+}
+
+/* Эффект параллакса */
+.ticket-sets-container {
+  transform-style: preserve-3d;
+}
+
+.ticket-set:nth-child(odd) {
+  transform: rotateZ(-1deg);
+}
+
+.ticket-set:nth-child(even) {
+  transform: rotateZ(1deg);
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--uno-red);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--uno-accent);
+}
+
+.winnings-modal {
+  max-width: 800px;
+}
+
+.winning-combination-section {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+}
+
+.winning-combination-section h4 {
+  margin-bottom: 1rem;
+  color: var(--uno-black);
+}
+
+.winning-combination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.winnings-list {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.ticket-result {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid var(--uno-black);
+}
+
+.ticket-result.gold {
+  border-left-color: gold;
+  background: linear-gradient(90deg, rgba(255,215,0,0.1), white);
+}
+
+.ticket-result.silver {
+  border-left-color: silver;
+  background: linear-gradient(90deg, rgba(192,192,192,0.1), white);
+}
+
+.ticket-result.bronze {
+  border-left-color: #cd7f32;
+  background: linear-gradient(90deg, rgba(205,127,50,0.1), white);
+}
+
+.ticket-result.blue {
+  border-left-color: var(--uno-blue);
+  background: linear-gradient(90deg, rgba(30,144,255,0.1), white);
+}
+
+.ticket-result.green {
+  border-left-color: var(--uno-green);
+  background: linear-gradient(90deg, rgba(50,205,50,0.1), white);
+}
+
+.ticket-result.gray {
+  border-left-color: gray;
+  background: linear-gradient(90deg, rgba(128,128,128,0.1), white);
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed rgba(0,0,0,0.1);
+}
+
+.ticket-number {
+  font-weight: bold;
+  color: var(--uno-black);
+}
+
+.prize-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.prize-badge.gold {
+  background: gold;
+  color: var(--uno-black);
+}
+
+.prize-badge.silver {
+  background: silver;
+  color: var(--uno-black);
+}
+
+.prize-badge.bronze {
+  background: #cd7f32;
+  color: white;
+}
+
+.prize-badge.blue {
+  background: var(--uno-blue);
+  color: white;
+}
+
+.prize-badge.green {
+  background: var(--uno-green);
+  color: var(--uno-black);
+}
+
+.prize-badge.gray {
+  background: gray;
+  color: white;
+}
+
+.ticket-cards {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.card-container {
+  position: relative;
+}
+
+.match-indicator {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  background: var(--uno-red);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px solid white;
+}
+
+.full-match {
+  animation: pulse 0.5s 3;
+}
+
+.partial-match {
+  animation: pulse 0.5s 2;
+}
+
+.no-tickets {
+  text-align: center;
+  padding: 2rem;
+  color: var(--uno-black);
+  font-size: 1.2rem;
+}
+/* В существующие стили добавить */
+.winning-combination, .ticket-cards {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card-container {
+  position: relative;
+  margin: 5px;
+}
+
+.match-indicator {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.full-match .match-indicator {
+  color: #2ecc71;
+  border: 2px solid #2ecc71;
+}
+
+.partial-match .match-indicator {
+  color: #f1c40f;
+  border: 2px solid #f1c40f;
+}
+
+.ticket-result.gold .prize-badge {
+  background: linear-gradient(45deg, #ffd700, #c5a000);
+}
+
+.ticket-result.silver .prize-badge {
+  background: linear-gradient(45deg, #c0c0c0, #808080);
+}
+
+.ticket-result.bronze .prize-badge {
+  background: linear-gradient(45deg, #cd7f32, #804000);
+}
